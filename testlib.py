@@ -11,7 +11,7 @@ def testFunc1():
 
 def testFunc2():
     print("Hello world!")
-    
+
 
 def testFunc3():
     print("Hello derp!")
@@ -30,6 +30,11 @@ def testFunc5():
 def testFunc7():
     """  Yet another placeholder function. """
     print("This is function 7")
+
+
+def testFunc6():
+    """  Yet another placeholder function. """
+    print("This is function 6")
 
 
 def testAdd(a, b):
