@@ -11,6 +11,10 @@ def testFunc1():
 
 def testFunc2():
     print("Hello world!")
+    
+
+def testFunc3():
+    print("Hello derp!")
 
 
 def testAdd(a, b):
