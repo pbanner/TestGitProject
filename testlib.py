@@ -27,6 +27,11 @@ def testFunc5():
     print("This is function 5")
 
 
+def testFunc7():
+    """  Yet another placeholder function. """
+    print("This is function 7")
+
+
 def testAdd(a, b):
     """  Adds two numbers and returns the result. """
     return a+b
