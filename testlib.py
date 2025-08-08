@@ -10,10 +10,12 @@ def testFunc1():
 
 
 def testFunc2():
+    """ A simple print function. """
     print("Hello world!")
 
 
 def testFunc3():
+    """ A simple print function. """
     print("Hello derp!")
 
 
@@ -38,7 +40,19 @@ def testFunc6():
 
 
 def testAdd(a, b):
-    """  Adds two numbers and returns the result. """
+    """
+    Adds two numbers and returns the result.
+
+    Parameters
+    ----------
+    a, b : int or float
+        The numbers to be added.
+
+    Returns
+    -------
+    int or float
+        The sum of the two numbers.
+    """
     return a+b
 
 
@@ -53,7 +67,22 @@ def testMult(a, b):
 
 
 def testFib(n):
-    """  Returns the nth Fibonacci number. """
+    """
+    Returns the nth Fibonacci number. For n < 0, returns 0.
+    If n == 0, returns 0; if n == 1, returns 1.
+    For n > 1, computes the Fibonacci number iteratively.
+
+    Parameters
+    ----------
+    n : int
+        The position in the Fibonacci sequence (0-indexed).
+
+    Returns
+    -------
+    int
+        The nth Fibonacci number. 
+    
+    """
     if n <= 0:
         return 0
     elif n == 1:
@@ -66,7 +95,25 @@ def testFib(n):
 
 
 def testFactorial(n):
-    """  Returns the factorial of n. """
+    """ 
+    Returns the factorial of n.
+
+    Parameters
+    ----------
+    n : int
+        The number for which the factorial is to be calculated.
+
+    Returns
+    -------
+    int
+        The factorial of n.
+
+    Raises
+    ------
+    ValueError
+        If n is negative, as factorial is not defined for negative numbers.
+    
+    """
     if n < 0:
         raise ValueError("Factorial is not defined for negative numbers")
     elif n == 0 or n == 1:
