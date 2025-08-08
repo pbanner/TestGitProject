@@ -23,7 +23,6 @@ def testMult(a, b):
     return a*b
 
 
-<<<<<<< HEAD
 def testFib(n):
     """  Returns the nth Fibonacci number. """
     if n <= 0:
@@ -48,10 +47,10 @@ def testFactorial(n):
         for i in range(2, n + 1):
             result *= i
         return result
-=======
+
+
 def testDiv(a, b):
     """  Divides two numbers and returns the result. """
     if b == 0:
         raise ValueError("Division by zero is not allowed.")
     return a/b
->>>>>>> feature-mult
