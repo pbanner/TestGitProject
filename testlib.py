@@ -2,6 +2,7 @@ import time
 
 
 def testFunc1():
+    """ A simple delay function. """
     t0 = time.time()
     time.sleep(1.2)
     t1 = time.time()
