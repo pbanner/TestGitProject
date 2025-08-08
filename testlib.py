@@ -21,3 +21,10 @@ def testSub(a, b):
 def testMult(a, b):
     """  Multiplies two numbers and returns the result. """
     return a*b
+
+
+def testDiv(a, b):
+    """  Divides two numbers and returns the result. """
+    if b == 0:
+        raise ValueError("Division by zero is not allowed.")
+    return a/b
