@@ -16,3 +16,8 @@ def testAdd(a, b):
 def testSub(a, b):
     """  Subtracts two numbers and returns the result. """
     return a-b
+
+
+def testMult(a, b):
+    """  Multiplies two numbers and returns the result. """
+    return a*b
