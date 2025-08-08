@@ -9,6 +9,10 @@ def testFunc1():
     print("{:.2f} s".format(t1-t0))
 
 
+def testFunc2():
+    print("Hello world!")
+
+
 def testAdd(a, b):
     """  Adds two numbers and returns the result. """
     return a+b
