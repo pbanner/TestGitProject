@@ -11,3 +11,8 @@ def testFunc1():
 def testAdd(a, b):
     """  Adds two numbers and returns the result. """
     return a+b
+
+
+def testSub(a, b):
+    """  Subtracts two numbers and returns the result. """
+    return a-b
