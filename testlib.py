@@ -18,6 +18,7 @@ def testFunc3():
 
 
 def testFunc4():
+    """  A placeholder function. """
     print("This is function 4")
 
 
