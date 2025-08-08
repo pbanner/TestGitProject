@@ -17,6 +17,11 @@ def testFunc3():
     print("Hello derp!")
 
 
+def testFunc4():
+    """  A placeholder function. """
+    print("This is function 4")
+
+
 def testAdd(a, b):
     """  Adds two numbers and returns the result. """
     return a+b
