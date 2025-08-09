@@ -1,3 +1,11 @@
+#
+# testlib.py
+# A collection of test functions and classes for demonstration purposes.
+#
+"""
+A collection of test functions and classes for demonstration purposes.
+"""
+
 import time
 
 
