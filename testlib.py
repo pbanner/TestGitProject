@@ -133,24 +133,53 @@ def testDiv(a, b):
 
 
 class oneAtomState:
+    """
+    A class for holding and manipulating the quantum state of a single atom.
+
+    Attributes
+    ----------
+    n, l, j, mj : int
+        The state of the atom.
+    q : int
+        The Fourier component for Floquet state, default is 0.
+
+    """
     n=0; l=0; j=0; mj=0
-    q=0     # Fourier component for Floquet state
+    q=0
 
     # Initialization with n, l, j, mj, and optional q_in for the Fourier component
     def __init__(self,n_in,l_in,j_in,mj_in,q_in = 0):
+        """
+        Initializes the oneAtomState with quantum numbers n, l, j, mj
+        and an optional Fourier component q_in (default 0).
+
+        Parameters
+        ----------
+        n_in : int
+            Principal quantum number.
+        l_in : int
+            Azimuthal quantum number.
+        j_in : float
+            Total angular momentum quantum number.
+        mj_in : float
+            Magnetic quantum number.
+        q_in : int, optional
+            Fourier component for Floquet state (default is 0).
+        
+        """
         self.n = int(n_in); self.l = int(l_in); self.j = j_in; self.mj = mj_in
         self.q = int(q_in)
     
-    # Convert to printable string
     def __str__(self):
+        """ Returns a string representation of the oneAtomState. """
         return "({:.0f}, {:.0f}, {:.1f}, {:.1f}, q={:.0f})".format(self.n, self.l, self.j, self.mj, self.q)
     
-    # Convert to Python list (mostly for saving to files)
     def tolist(self):
+        """ Converts the state to a list representation (useful for saving to files). """
         return [self.n, self.l, self.j, self.mj, self.q]
     
-    # Checking equality between two states
     def __eq__(self, other):
+        """  Checks if two oneAtomStates are equal based on their quantum numbers. """
         if self.n == other.n and self.l == other.l and self.j == other.j and self.mj == other.mj and self.q == other.q:
             return True
         else:
