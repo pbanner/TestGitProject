@@ -18,11 +18,3 @@ Here is some test text for a library that offers a *simple* and **intuitive** AP
    
    usage
    api
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

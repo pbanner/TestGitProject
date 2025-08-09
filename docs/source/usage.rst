@@ -13,4 +13,4 @@ To use the library, first install it using pip:
 Function Examples
 -----------------
 
-For example, the library has the following function: :doc:`generated/testlib.testAdd`
+For example, the library has the following function: :doc:`api/testlib/functions/testAdd`.
