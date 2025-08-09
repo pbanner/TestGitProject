@@ -147,7 +147,6 @@ class oneAtomState:
     n=0; l=0; j=0; mj=0
     q=0
 
-    # Initialization with n, l, j, mj, and optional q_in for the Fourier component
     def __init__(self,n_in,l_in,j_in,mj_in,q_in = 0):
         """
         Initializes the oneAtomState with quantum numbers n, l, j, mj
@@ -187,12 +186,38 @@ class oneAtomState:
 
 
 class twoAtomState:
+    """
+    A class for holding and manipulating the quantum state of a single atom.
+
+    Attributes
+    ----------
+    n1, l1, j1, mj1 : int
+        The state of the first atom.
+    n2, l2, j2, mj2 : int
+        The state of the second atom.
+    q : int
+        The Fourier component for Floquet state, default is 0.
+
+    """
     n1=0; ll=0; jl=0; mjl=0
     n2=0; l2=0; j2=0; mj2=0
-    q=0     # Fourier component for Floquet state
+    q=0
 
-    # Initialization with n, l, j, mj, and optional q_in for the Fourier component
     def __init__(self,n1_in,l1_in,j1_in,mj1_in,n2_in,l2_in,j2_in,mj2_in,q_in = 0):
+        """
+        Initializes the twoAtomState with quantum numbers for two atoms and a
+        Fourier component q_in (default 0).
+
+        Parameters
+        ----------
+        n1_in, l1_in, j1_in, mj1_in : int
+            Quantum numbers for the first atom.
+        n2_in, l2_in, j2_in, mj2_in : int
+            Quantum numbers for the second atom.
+        q_in : int, optional
+            Fourier component for Floquet state (default is 0).
+        
+        """
         self.n1 = int(n1_in); self.l1 = int(l1_in); self.j1 = j1_in; self.mj1 = mj1_in
         self.n2 = int(n2_in); self.l2 = int(l2_in); self.j2 = j2_in; self.mj2 = mj2_in
         self.q = int(q_in)
@@ -201,20 +226,38 @@ class twoAtomState:
     # Returns the relevant two-atom states
     @classmethod
     def fromOneAtomStates(cls, s1, s2):
+        """ 
+        Creates a twoAtomState from two oneAtomStates. 
+
+        Parameters
+        ----------
+        s1, s2 : oneAtomState
+            The one-atom states to combine into a two-atom state.
+
+        Returns
+        -------
+        twoAtomState
+            A new twoAtomState object created from the provided oneAtomStates.
+
+        Raises
+        ------
+        Exception
+            If the q values of the two states do not match.
+        """
         if (s1.q != s2.q):
             raise Exception("The q values of the states must match.")
         return cls(s1.n, s1.l, s1.j, s1.mj, s2.n, s2.l, s2.j, s2.mj, s1.q)
     
-    # Convert to printable string
     def __str__(self):
+        """ Returns a string representation of the twoAtomState. """
         return "(({:.0f}, {:.0f}, {:.1f}, {:.1f}), ({:.0f}, {:.0f}, {:.1f}, {:.1f}), q={:.0f})".format(self.n1, self.l1, self.j1, self.mj1, self.n2, self.l2, self.j2, self.mj2, self.q)
     
-    # Convert to Python list (mostly for saving to files)
     def tolist(self):
+        """ Converts the two-atom state to a list representation. """
         return [self.n1, self.l1, self.j1, self.mj1, self.n2, self.l2, self.j2, self.mj2, self.q]
     
-    # Checking equality between two states
     def __eq__(self, other):
+        """ Checks if two twoAtomStates are equal based on their quantum numbers. """
         if self.n1 == other.n1 and self.l1 == other.l1 and self.j1 == other.j1 and self.mj1 == other.mj1 and self.n2 == other.n2 and self.l2 == other.l2 and self.j2 == other.j2 and self.mj2 == other.mj2 and self.q == other.q:
             return True
         else:
