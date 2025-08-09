@@ -130,3 +130,63 @@ def testDiv(a, b):
     if b == 0:
         raise ValueError("Division by zero is not allowed.")
     return a/b
+
+
+class oneAtomState:
+    n=0; l=0; j=0; mj=0
+    q=0     # Fourier component for Floquet state
+
+    # Initialization with n, l, j, mj, and optional q_in for the Fourier component
+    def __init__(self,n_in,l_in,j_in,mj_in,q_in = 0):
+        self.n = int(n_in); self.l = int(l_in); self.j = j_in; self.mj = mj_in
+        self.q = int(q_in)
+    
+    # Convert to printable string
+    def __str__(self):
+        return "({:.0f}, {:.0f}, {:.1f}, {:.1f}, q={:.0f})".format(self.n, self.l, self.j, self.mj, self.q)
+    
+    # Convert to Python list (mostly for saving to files)
+    def tolist(self):
+        return [self.n, self.l, self.j, self.mj, self.q]
+    
+    # Checking equality between two states
+    def __eq__(self, other):
+        if self.n == other.n and self.l == other.l and self.j == other.j and self.mj == other.mj and self.q == other.q:
+            return True
+        else:
+            return False
+
+
+class twoAtomState:
+    n1=0; ll=0; jl=0; mjl=0
+    n2=0; l2=0; j2=0; mj2=0
+    q=0     # Fourier component for Floquet state
+
+    # Initialization with n, l, j, mj, and optional q_in for the Fourier component
+    def __init__(self,n1_in,l1_in,j1_in,mj1_in,n2_in,l2_in,j2_in,mj2_in,q_in = 0):
+        self.n1 = int(n1_in); self.l1 = int(l1_in); self.j1 = j1_in; self.mj1 = mj1_in
+        self.n2 = int(n2_in); self.l2 = int(l2_in); self.j2 = j2_in; self.mj2 = mj2_in
+        self.q = int(q_in)
+
+    # Call as twoAtomState.fromOneAtomStates(s1, s2) where s1, s2 are oneAtomStates
+    # Returns the relevant two-atom states
+    @classmethod
+    def fromOneAtomStates(cls, s1, s2):
+        if (s1.q != s2.q):
+            raise Exception("The q values of the states must match.")
+        return cls(s1.n, s1.l, s1.j, s1.mj, s2.n, s2.l, s2.j, s2.mj, s1.q)
+    
+    # Convert to printable string
+    def __str__(self):
+        return "(({:.0f}, {:.0f}, {:.1f}, {:.1f}), ({:.0f}, {:.0f}, {:.1f}, {:.1f}), q={:.0f})".format(self.n1, self.l1, self.j1, self.mj1, self.n2, self.l2, self.j2, self.mj2, self.q)
+    
+    # Convert to Python list (mostly for saving to files)
+    def tolist(self):
+        return [self.n1, self.l1, self.j1, self.mj1, self.n2, self.l2, self.j2, self.mj2, self.q]
+    
+    # Checking equality between two states
+    def __eq__(self, other):
+        if self.n1 == other.n1 and self.l1 == other.l1 and self.j1 == other.j1 and self.mj1 == other.mj1 and self.n2 == other.n2 and self.l2 == other.l2 and self.j2 == other.j2 and self.mj2 == other.mj2 and self.q == other.q:
+            return True
+        else:
+            return False
