@@ -6,7 +6,7 @@
 Welcome to Test Git Project's documentation!
 ============================================
 
-Here is some test text for a library that offers a *simple* and **intuitive** API. Check out the :doc:`usage` section for further information.
+Here is some test text for a library that offers a *simple* and **intuitive** API. Check out the :doc:`usage/index` section for further information.
 
 .. note::
 
@@ -16,5 +16,5 @@ Here is some test text for a library that offers a *simple* and **intuitive** AP
    :maxdepth: 2
    :caption: Contents:
    
-   usage
+   usage/index
    api
